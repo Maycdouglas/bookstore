@@ -1,5 +1,6 @@
 import express from "express"
 import conectarDatabase from "./config/connectdatabase.js"
+import routes from "./routes/index.js"
 import chalk from "chalk"
 
 const conexao = await conectarDatabase()
@@ -13,5 +14,6 @@ conexao.once("open", () => {
 })
 
 const app = express()
+routes(app)
 
 export default app
